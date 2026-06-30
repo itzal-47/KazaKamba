@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>KazaKamba - Encontre pessoas, casas e oportunidades perto de si</title>
+    <meta name="description" content="KazaKamba - Plataforma de Angola para conectar pessoas directamente. Procure casas, servicos, trabalho e oportunidades sem intermediarios." />
+    <meta name="keywords" content="KazaKamba, Angola, casas, servicos, trabalho, oportunidades, marketplace, Luanda" />
+    <meta name="author" content="KazaKamba" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kazakamba.ao/" />
+    <meta property="og:title" content="KazaKamba - Encontre pessoas, casas e oportunidades" />
+    <meta property="og:description" content="Plataforma para Angola. Sem complicacao. Sem intermediarios. Quem procura encontra. Quem oferece aparece." />
+    <meta property="og:image" content="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_AO" />
+    <meta property="og:site_name" content="KazaKamba" />
+
+    <!-- WhatsApp specific -->
+    <meta property="og:image:alt" content="KazaKamba - Conexoes locais em Angola" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://kazakamba.ao/" />
+    <meta name="twitter:title" content="KazaKamba - Encontre pessoas, casas e oportunidades" />
+    <meta name="twitter:description" content="Plataforma para Angola. Sem complicacao. Sem intermediarios. Quem procura encontra. Quem oferece aparece." />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+
+    <!-- PWA / Mobile -->
+    <meta name="theme-color" content="#0A192F" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="KazaKamba" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="KazaKamba" />
+    <meta name="msapplication-TileColor" content="#0A192F" />
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('kazakamba_settings');
+          var settings = stored ? JSON.parse(stored) : {};
+          var theme = settings.theme || 'preto';
+          if (['branco', 'preto', 'kamba'].includes(theme)) {
+            document.documentElement.setAttribute('data-theme', theme);
+            var metaTheme = document.querySelector('meta[name="theme-color"]');
+            var colors = { branco: '#F8FAFC', preto: '#0A192F', kamba: '#1A1A2E' };
+            if (metaTheme) metaTheme.setAttribute('content', colors[theme]);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
