@@ -40,24 +40,18 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="KazaKamba" />
     <meta name="msapplication-TileColor" content="#0A192F" />
-    <script>
-      (function() {
-        try {
-          var stored = localStorage.getItem('kazakamba_settings');
-          var settings = stored ? JSON.parse(stored) : {};
-          var theme = settings.theme || 'preto';
-          if (['branco', 'preto', 'kamba'].includes(theme)) {
-            document.documentElement.setAttribute('data-theme', theme);
-            var metaTheme = document.querySelector('meta[name="theme-color"]');
-            var colors = { branco: '#F8FAFC', preto: '#0A192F', kamba: '#1A1A2E' };
-            if (metaTheme) metaTheme.setAttribute('content', colors[theme]);
-          }
-        } catch (e) {}
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('[PWA] SW registado:', reg.scope))
+            .catch(err => console.warn('[PWA] SW falhou:', err));
+        });
+      }
+    </script>
   </body>
 </html>
